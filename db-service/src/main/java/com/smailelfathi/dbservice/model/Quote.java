@@ -3,7 +3,7 @@ package com.smailelfathi.dbservice.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "quotes", catalog = "test")
+@Table(name = "quotes")
 public class Quote {
 
     @Id

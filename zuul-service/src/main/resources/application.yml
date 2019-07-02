@@ -1,7 +1,7 @@
 spring:
   application:
     name: zuul-service
-
+     
 server:
   port: 8700
   
