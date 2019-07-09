@@ -21,6 +21,7 @@ public class DbServiceResource {
 
 	@Autowired
 	private QuotesRepository quotesRepository;
+	
 
 	@GetMapping("/{username}")
 	public List<String> getQuotes(@PathVariable("username") final String username) {
