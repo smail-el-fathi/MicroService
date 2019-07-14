@@ -6,11 +6,14 @@ server:
   port: 8700
   
 eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 2
   client:
     serviceUrl:
-      defaultZone: http://localhost:8701/eureka/
-  instance:
-    hostname: localhost  
+      defaultZone: http://localhost:8701/eureka/  
+    healthcheck:
+      enabled: true
 
 zuul:
   prefix: /api
