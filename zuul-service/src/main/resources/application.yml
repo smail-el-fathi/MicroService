@@ -20,5 +20,4 @@ zuul:
   routes:
     db-service:
       path: /db-service/**
-      url: http://localhost:8711
-   
+      serviceId: db-service  

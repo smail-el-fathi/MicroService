@@ -1,10 +1,12 @@
 spring:
   application:
     name: db-service
-
+  cloud:
+    config:
+      uri: http://localhost:8704
+      
 server:
-  port: 8711
-
+  port: 8712
 
 eureka:
   instance:
@@ -20,5 +22,6 @@ management:
   endpoints:
     web:
       exposure:
-        include: hystrix.stream
-      base-path: /    
+        include: "*"
+        # include: hystrix.stream
+       # base-path: /    
