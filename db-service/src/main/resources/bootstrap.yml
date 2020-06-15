@@ -1,0 +1,27 @@
+spring:
+  application:
+    name: db-service
+  cloud:
+    config:
+      uri: http://localhost:8704
+      
+server:
+  port: 8712
+
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 2
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8701/eureka/  
+    healthcheck:
+      enabled: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+        # include: hystrix.stream
+       # base-path: /    

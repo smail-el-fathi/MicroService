@@ -1,0 +1,23 @@
+spring:
+  application:
+    name: zuul-service
+     
+server:
+  port: 8700
+  
+eureka:
+  instance:
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 2
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8701/eureka/  
+    healthcheck:
+      enabled: true
+
+zuul:
+  prefix: /api
+  routes:
+    db-service:
+      path: /db-service/**
+      serviceId: db-service  
