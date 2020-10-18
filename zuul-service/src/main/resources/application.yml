@@ -15,9 +15,9 @@ eureka:
     healthcheck:
       enabled: true
 
-zuul:
-  prefix: /api
-  routes:
-    db-service:
-      path: /db-service/**
-      serviceId: db-service  
+#zuul:
+  #  prefix: /api
+    #routes:
+      #db-service:
+      #path: /db-service/**
+      #serviceId: db-service
