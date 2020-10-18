@@ -22,20 +22,20 @@ import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 @EnableEurekaClient
 @EnableJpaRepositories(basePackages ="com.smailelfathi.dbservice.repository")
 @SpringBootApplication
-@EnableHystrix
-@EnableCircuitBreaker
+//@EnableHystrix
+//@EnableCircuitBreaker
 @RestController
 @RefreshScope
 public class DbServiceApplication {
 	
 	
-	@Value("${xParam}")
+	@Value("${xParam:''}")
 	private Boolean xParam;
 	
-	@Value("${copyRight}")
+	@Value("${copyRight:''}")
 	private String copyRight;
 	
-	@Value("${spring.jpa.show-sql}")
+	@Value("${spring.jpa.show-sql:true}")
 	private Boolean showSQL;
 	
 	@GetMapping("/myConfig")
