@@ -1,4 +1,4 @@
-package com.smailelfathi.dbservice.model;
+package com.smailelfathi.consumeservice.model;
 
 import javax.persistence.*;
 

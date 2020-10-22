@@ -1,4 +1,4 @@
-package com.smailelfathi.dbservice;
+package com.smailelfathi.consumeservice;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -6,10 +6,9 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
-import org.springframework.cloud.netflix.hystrix.EnableHystrix;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -19,25 +18,25 @@ import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 
 
-@EnableEurekaClient
-@EnableJpaRepositories(basePackages ="com.smailelfathi.dbservice.repository")
+@EnableDiscoveryClient
+@EnableJpaRepositories(basePackages = "com.smailelfathi.consumeservice.repository")
 @SpringBootApplication
 //@EnableHystrix
 //@EnableCircuitBreaker
 @RestController
 @RefreshScope
 public class DbServiceApplication {
-	
-	
-	@Value("${xParam:''}")
+
+
+	@Value("${xParam:true}")
 	private Boolean xParam;
-	
+
 	@Value("${copyRight:''}")
 	private String copyRight;
-	
+
 	@Value("${spring.jpa.show-sql:true}")
 	private Boolean showSQL;
-	
+
 	@GetMapping("/myConfig")
 	public Map<String,Object> Myconfig(){
 		 Map<String,Object> params=new HashMap<>();
@@ -64,7 +63,7 @@ public class DbServiceApplication {
 		   }
 	      return "Welcome Hystrix";
 	   }
-	   
+
 	   private String fallback_hello() {
 	      return "Request fails. It takes long time to response";
 	   }
